@@ -1,0 +1,96 @@
+/* Estilos para la página */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+/* Corazón palpitante */
+.heart {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    transform: rotate(-45deg);
+    animation: heartbeat 1s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -75px;
+    left: 0;
+}
+
+.heart::after {
+    left: 75px;
+    top: 0;
+}
+
+/* Animación del corazón */
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1) rotate(-45deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(-45deg);
+    }
+}
+
+/* Texto animado */
+.text {
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    font-size: 2rem;
+    color: white;
+    margin-top: 20px;
+    animation: moveText 4s infinite alternate ease-in-out;
+}
+
+@keyframes moveText {
+    0% {
+        transform: translateX(-50px);
+    }
+    100% {
+        transform: translateX(50px);
+    }
+}
+
+/* Adaptación para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .heart {
+        width: 100px;
+        height: 100px;
+    }
+
+    .heart::before, .heart::after {
+        width: 100px;
+        height: 100px;
+    }
+
+    .heart::before {
+        top: -50px;
+    }
+
+    .heart::after {
+        left: 50px;
+    }
+
+    .text {
+        font-size: 1.5rem;
+    }
+}
